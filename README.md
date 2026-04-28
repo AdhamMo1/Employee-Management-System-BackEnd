@@ -33,7 +33,7 @@ A comprehensive Django REST API for managing employees, departments, and compani
 ```bash
 # Clone the repository
 git clone https://github.com/AdhamMo1/Employee-Management-System-BackEnd.git
-cd "Employee Management System"
+cd "Employee-Management-System-BackEnd"
 
 # Start the application
 docker-compose up --build
