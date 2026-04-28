@@ -33,7 +33,7 @@ A comprehensive Django REST API for managing employees, departments, and compani
 ```bash
 # Clone the repository
 git clone https://github.com/AdhamMo1/Employee-Management-System-BackEnd.git
-cd "Employee Management System"
+cd "Employee-Management-System-BackEnd"
 
 # Start the application
 docker-compose up --build
@@ -59,6 +59,11 @@ Use these credentials to login and obtain a JWT token.
 ---
 
 ## API Documentation
+
+### Postman Collection
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/adham-api/workspace/employee-management-system-sme)
+
+Or import directly: `https://www.postman.com/adham-api/workspace/employee-management-system-sme`
 
 ### Base URL
 ```
