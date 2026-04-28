@@ -455,6 +455,8 @@ class UserHandle:
         }
 
     def update_status(self, pk):
+        fun_message = self.cloud_message.get("check_update_status", {})
+
         try:
             model_object = self.modelDB.get(id=pk)
         except:
@@ -466,6 +468,16 @@ class UserHandle:
                 "index_sub": 0
             })
             return status.HTTP_404_NOT_FOUND, {"errors": self.error_handling}, None
+
+        if self.request.user and self.request.user.id == model_object.id:
+            self.error_handling.append({
+                "tap": 1,
+                "field": "is_active",
+                "error": fun_message.get("cannot_update_self_status", {}).get(self.ln, "Cannot update your own status"),
+                "index_main": 0,
+                "index_sub": 0
+            })
+            return status.HTTP_403_FORBIDDEN, {"errors": self.error_handling}, None
 
         status_value = self.request_data.get("is_active")
 

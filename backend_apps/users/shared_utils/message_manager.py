@@ -100,6 +100,12 @@ message = {
                 "ar": "المستخدم غير موجود."
             },
         },
+        "check_update_status": {
+            "cannot_update_self_status": {
+                "en": "Cannot update your own status.",
+                "ar": "لا يمكنك تحديث حالتك الخاصة."
+            },
+        },
         "create_success": {
             "en": "User created successfully.",
             "ar": "تم إنشاء المستخدم بنجاح."
