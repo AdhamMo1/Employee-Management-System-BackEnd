@@ -60,6 +60,11 @@ Use these credentials to login and obtain a JWT token.
 
 ## API Documentation
 
+### Postman Collection
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/adham-api/workspace/employee-management-system-sme)
+
+Or import directly: `https://www.postman.com/adham-api/workspace/employee-management-system-sme`
+
 ### Base URL
 ```
 http://localhost:8000
