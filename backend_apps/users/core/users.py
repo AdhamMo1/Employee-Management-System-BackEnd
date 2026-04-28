@@ -308,23 +308,6 @@ class UserHandle:
         except:
             return status.HTTP_404_NOT_FOUND, fun_message.get("not_found", {}).get(self.ln, "User not found"), None
 
-        related_objects = []
-        for rel in model_object._meta.related_objects:
-            related_name = rel.get_accessor_name()
-            related_manager = getattr(model_object, related_name)
-            if related_manager.exists():
-                related_objects.append(rel.related_model._meta.verbose_name_plural.title())
-
-        if related_objects:
-            self.error_handling.append({
-                "tap": 1,
-                "field": "delete",
-                "error": fun_message.get("related_objects_found", {}).get(self.ln, "Cannot delete: related objects exist"),
-                "index_main": 0,
-                "index_sub": 0
-            })
-            return status.HTTP_400_BAD_REQUEST, {"errors": self.error_handling}, {', '.join(related_objects)}
-
         try:
             with transaction.atomic():
                 model_object.delete()
