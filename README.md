@@ -584,15 +584,56 @@ docker-compose exec web python manage.py check
 Employee Management System/
 ├── backend_apps/
 │   ├── authentication/    # Login & JWT
+│   │   └── tests/
+│   │       ├── __init__.py
+│   │       └── test_views.py
 │   ├── companies/         # Company management + Dashboard
+│   │   └── tests/
+│   │       ├── __init__.py
+│   │       ├── test_models.py
+│   │       └── test_views.py
 │   ├── departments/       # Department management
+│   │   └── tests/
+│   │       ├── __init__.py
+│   │       ├── test_models.py
+│   │       └── test_views.py
 │   ├── employees/         # Employee management
+│   │   └── tests/
+│   │       ├── __init__.py
+│   │       ├── test_models.py
+│   │       └── test_views.py
 │   └── users/             # User management
+│       └── tests/
+│           ├── __init__.py
+│           ├── test_models.py
+│           ├── test_views.py
+│           └── test_services.py
 ├── main_project/          # Django settings & URLs
+├── conftest.py            # pytest fixtures
+├── pytest.ini             # pytest configuration
 ├── docker-compose.yml     # Docker configuration
 ├── Dockerfile             # Web container
 ├── requirements.txt       # Python dependencies
 └── README.md              # This file
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest
+
+# Run specific app tests
+pytest backend_apps/companies/tests/ -v
+
+# Run specific test file
+pytest backend_apps/users/tests/test_views.py -v
+
+# Run with coverage
+pytest --cov=backend_apps --cov-report=html
+
+# Run with Docker
+docker-compose exec web pytest
 ```
 
 ---
