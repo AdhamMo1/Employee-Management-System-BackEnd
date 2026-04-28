@@ -87,6 +87,10 @@ message = {
                 "en": "Cannot delete: related objects exist.",
                 "ar": "لا يمكن الحذف: توجد سجلات مرتبطة."
             },
+            "cannot_delete_self": {
+                "en": "Cannot delete your own account.",
+                "ar": "لا يمكن حذف حسابك الخاص."
+            },
             "deleted_successfully": {
                 "en": "User deleted successfully.",
                 "ar": "تم حذف المستخدم بنجاح."

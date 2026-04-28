@@ -308,6 +308,16 @@ class UserHandle:
         except:
             return status.HTTP_404_NOT_FOUND, fun_message.get("not_found", {}).get(self.ln, "User not found"), None
 
+        if self.request.user and self.request.user.id == model_object.id:
+            self.error_handling.append({
+                "tap": 1,
+                "field": "delete",
+                "error": fun_message.get("cannot_delete_self", {}).get(self.ln, "Cannot delete your own account"),
+                "index_main": 0,
+                "index_sub": 0
+            })
+            return status.HTTP_403_FORBIDDEN, {"errors": self.error_handling}, None
+
         try:
             with transaction.atomic():
                 model_object.delete()
