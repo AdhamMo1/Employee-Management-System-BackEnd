@@ -49,10 +49,13 @@ class UserAuthenticationManager:
         refresh_token = str(refresh)
 
         try:
-            company_id = user_object.company.id
-            employee_id = user_object.employee.id
+            company_id = user_object.company.id if user_object.company else None
         except:
             company_id = None
+
+        try:
+            employee_id = user_object.employee.id
+        except:
             employee_id = None
 
         self.response_status = status.HTTP_200_OK

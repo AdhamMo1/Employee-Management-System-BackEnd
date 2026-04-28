@@ -30,7 +30,7 @@ class UsersAPIView(APIView):
         }
         return Response(re_send, call_response[0])
 
-    @admin_required()
+    @hr_or_admin_required()
     def post(self, request):
         call_response = UserHandle(request).create()
 

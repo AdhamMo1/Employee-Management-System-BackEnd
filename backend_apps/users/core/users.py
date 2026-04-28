@@ -71,6 +71,9 @@ class UserHandle:
 
         queryset = self.modelDB.order_by('-updated_at', '-created_at')
 
+        if self.request.GET.get("company_id"):
+            queryset = queryset.filter(company_id=self.request.GET.get("company_id"))
+
         try:
             per_page = int(self.request.GET.get("per_page", 10))
         except:
@@ -248,6 +251,9 @@ class UserHandle:
         if company_id is None:
             return True
 
+        if self.request_data.get("role") == RoleChoices.SYSTEM_ADMINISTRATOR:
+            return True
+
         try:
             from backend_apps.companies.models import Company
             Company.objects.get(id=company_id)
@@ -368,7 +374,7 @@ class UserHandle:
                     first_name=first_name,
                     last_name=last_name,
                     role=self.request_data.get("role", RoleChoices.NOT_SELECTED),
-                    company_id=self.request_data.get("company_id"),
+                    company_id=self.request_data.get("company_id", None) if self.request_data.get("company_id", None) else None,
                 )
                 model_object.set_password(self.request_data.get("password").strip())
                 model_object.save()
