@@ -1,4 +1,4 @@
-# 🏢 Employee Management System (EMS)
+# Employee Management System (EMS)
 
 A comprehensive Django REST API for managing employees, departments, and companies with JWT authentication and role-based access control.
 
@@ -8,20 +8,20 @@ A comprehensive Django REST API for managing employees, departments, and compani
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔐 **JWT Authentication** - Secure token-based authentication
-- 👥 **Role-Based Access Control** - System Admin, HR Manager, Employee roles
-- 🏢 **Company Management** - Create, update, delete companies
-- 📁 **Department Management** - Organize departments within companies
-- 👨‍💼 **Employee Management** - Full employee lifecycle management
-- 📊 **Dashboard Statistics** - Real-time metrics and analytics
-- 🌍 **Multi-Language Support** - English & Arabic
-- 🐳 **Docker Support** - One-command deployment
+- **JWT Authentication** - Secure token-based authentication
+- **Role-Based Access Control** - System Admin, HR Manager, Employee roles
+- **Company Management** - Create, update, delete companies
+- **Department Management** - Organize departments within companies
+- **Employee Management** - Full employee lifecycle management
+- **Dashboard Statistics** - Real-time metrics and analytics
+- **Multi-Language Support** - English & Arabic
+- **Docker Support** - One-command deployment
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -43,7 +43,7 @@ The API will be available at `http://localhost:8000`
 
 ---
 
-## 🔑 Default Admin Account
+## Default Admin Account
 
 When the container starts, a default superuser is automatically created:
 
@@ -58,7 +58,7 @@ Use these credentials to login and obtain a JWT token.
 
 ---
 
-## 📚 API Documentation
+## API Documentation
 
 ### Base URL
 ```
@@ -81,11 +81,11 @@ Authorization: Bearer <access_token>
 
 ---
 
-## 🔐 Authentication Endpoints
+## Authentication Endpoints
 
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/v1/auth/login` | ❌ Public | Login and get JWT tokens |
+| `POST` | `/api/v1/auth/login` | No | Login and get JWT tokens |
 
 ### Login
 **Request:**
@@ -122,11 +122,11 @@ curl -X POST http://localhost:8000/api/v1/auth/login \
 
 ---
 
-## 📊 Dashboard Endpoints
+## Dashboard Endpoints
 
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/v1/companies/dashboard` | ✅ HR/Admin | Get dashboard statistics |
+| `GET` | `/api/v1/companies/dashboard` | Yes | Get dashboard statistics |
 
 ### Get Dashboard Stats
 
@@ -166,16 +166,16 @@ curl -X GET "http://localhost:8000/api/v1/companies/dashboard?company_id=1" \
 
 ---
 
-## 🏢 Company Endpoints
+## Company Endpoints
 
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/v1/companies` | ✅ HR/Admin | List all companies |
-| `POST` | `/api/v1/companies` | ✅ Admin | Create new company |
-| `GET` | `/api/v1/companies/<id>` | ✅ HR/Admin | Get company details |
-| `PUT` | `/api/v1/companies/<id>` | ✅ Admin | Update company |
-| `PATCH` | `/api/v1/companies/<id>` | ✅ Admin | Update company status |
-| `DELETE` | `/api/v1/companies/<id>` | ✅ Admin | Delete company |
+| `GET` | `/api/v1/companies` | Yes | List all companies |
+| `POST` | `/api/v1/companies` | Yes | Create new company |
+| `GET` | `/api/v1/companies/<id>` | Yes | Get company details |
+| `PUT` | `/api/v1/companies/<id>` | Yes | Update company |
+| `PATCH` | `/api/v1/companies/<id>` | Yes | Update company status |
+| `DELETE` | `/api/v1/companies/<id>` | Yes | Delete company |
 
 ### List Companies
 ```bash
@@ -227,16 +227,16 @@ curl -X DELETE http://localhost:8000/api/v1/companies/1 \
 
 ---
 
-## 📁 Department Endpoints
+## Department Endpoints
 
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/v1/departments` | ✅ HR/Admin | List all departments |
-| `POST` | `/api/v1/departments` | ✅ HR/Admin | Create new department |
-| `GET` | `/api/v1/departments/<id>` | ✅ HR/Admin | Get department details |
-| `PUT` | `/api/v1/departments/<id>` | ✅ HR/Admin | Update department |
-| `PATCH` | `/api/v1/departments/<id>` | ✅ HR/Admin | Update department status |
-| `DELETE` | `/api/v1/departments/<id>` | ✅ HR/Admin | Delete department |
+| `GET` | `/api/v1/departments` | Yes | List all departments |
+| `POST` | `/api/v1/departments` | Yes | Create new department |
+| `GET` | `/api/v1/departments/<id>` | Yes | Get department details |
+| `PUT` | `/api/v1/departments/<id>` | Yes | Update department |
+| `PATCH` | `/api/v1/departments/<id>` | Yes | Update department status |
+| `DELETE` | `/api/v1/departments/<id>` | Yes | Delete department |
 
 ### List Departments
 ```bash
@@ -290,16 +290,16 @@ curl -X DELETE http://localhost:8000/api/v1/departments/1 \
 
 ---
 
-## 👨‍💼 Employee Endpoints
+## Employee Endpoints
 
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/v1/employees` | ✅ HR/Admin | List all employees |
-| `POST` | `/api/v1/employees` | ✅ HR/Admin | Create new employee |
-| `GET` | `/api/v1/employees/<id>` | ✅ HR/Admin | Get employee details |
-| `PUT` | `/api/v1/employees/<id>` | ✅ HR/Admin | Update employee |
-| `PATCH` | `/api/v1/employees/<id>` | ✅ HR/Admin | Update employee status |
-| `DELETE` | `/api/v1/employees/<id>` | ✅ HR/Admin | Delete employee |
+| `GET` | `/api/v1/employees` | Yes | List all employees |
+| `POST` | `/api/v1/employees` | Yes | Create new employee |
+| `GET` | `/api/v1/employees/<id>` | Yes | Get employee details |
+| `PUT` | `/api/v1/employees/<id>` | Yes | Update employee |
+| `PATCH` | `/api/v1/employees/<id>` | Yes | Update employee status |
+| `DELETE` | `/api/v1/employees/<id>` | Yes | Delete employee |
 
 ### List Employees
 ```bash
@@ -361,16 +361,16 @@ curl -X DELETE http://localhost:8000/api/v1/employees/1 \
 
 ---
 
-## 👤 User Endpoints
+## User Endpoints
 
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/v1/users` | ✅ Authenticated | List all users |
-| `POST` | `/api/v1/users` | ✅ Admin | Create new user |
-| `GET` | `/api/v1/users/<id>` | ✅ Authenticated | Get user details |
-| `PUT` | `/api/v1/users/<id>` | ✅ Admin | Update user |
-| `PATCH` | `/api/v1/users/<id>` | ✅ HR/Admin | Update user status |
-| `DELETE` | `/api/v1/users/<id>` | ✅ Admin | Delete user |
+| `GET` | `/api/v1/users` | Yes | List all users |
+| `POST` | `/api/v1/users` | Yes | Create new user |
+| `GET` | `/api/v1/users/<id>` | Yes | Get user details |
+| `PUT` | `/api/v1/users/<id>` | Yes | Update user |
+| `PATCH` | `/api/v1/users/<id>` | Yes | Update user status |
+| `DELETE` | `/api/v1/users/<id>` | Yes | Delete user |
 
 ### List Users
 ```bash
@@ -410,7 +410,7 @@ curl -X PATCH http://localhost:8000/api/v1/users/1 \
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Entity Relationship Diagram
 
@@ -496,7 +496,7 @@ curl -X PATCH http://localhost:8000/api/v1/users/1 \
 
 ---
 
-## 🔒 Authentication & Roles
+## Authentication & Roles
 
 ### JWT Token Structure
 
@@ -520,7 +520,7 @@ curl -X PATCH http://localhost:8000/api/v1/users/1 \
 
 ---
 
-## 🌍 Multi-Language Support
+## Multi-Language Support
 
 API supports English (`en`) and Arabic (`ar`). Set language via header:
 
@@ -532,7 +532,7 @@ Default language is English if not specified.
 
 ---
 
-## 🛠️ Development
+## Development
 
 ### Run Without Docker
 
@@ -578,7 +578,7 @@ docker-compose exec web python manage.py check
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Employee Management System/
